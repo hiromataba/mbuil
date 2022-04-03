@@ -1,23 +1,29 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import routes from '../../utils/routes';
-import buldingIcon from '../../commercial-building_icon.svg';
-import floorIcon from '../../icon_floor.svg';
+import locationIcon from '../../352521_location_on_icon.svg';
+import buldingImg from '../../commercial-building.svg';
+import plusIcon from '../../134224_add_plus_new_icon.svg';
+import floorIconSmall from '../../icon_floor_small.svg';
 import doorIcon from '../../icon_door.svg';
 import backIcon from '../../2849832_arrows_navigation_arrow_left_back_icon.svg';
 import officeIcon from '../../icon_appartment.svg';
-import floorImg from '../../add-a-device.png';
+import floorImg from '../../add-a-floor.png';
 
-import './Floor.css';
+import './Details.css';
+import { Link } from 'react-router-dom';
 
-const Floor = () => {
+
+const Details = () => {
   const [currentItem, setcurrentItem] = useState(2)
   const data = useSelector((state) => state.building.data);
   const  navItems = [
     { id: 1, name:'All Devices'},
-    { id: 2, name:'Offices'},
-    { id: 3, name:'Manage devices'},
-    { id: 4, name:'User management'},
+    { id: 2, name:'Floors'},
+    { id: 3, name:'Apartements'},
+    { id: 4, name:'Rooms'},
+    { id: 5, name:'Manage Devices'},
+    { id: 6, name:'User management'},
   ]
 
   const handleSelectItem = (e,id) => {
@@ -31,29 +37,30 @@ const Floor = () => {
       <div className="details-page-main-wrapper">
         <div className="details-page-header">
           <button className="back-btn"><img src={backIcon} alt="Back icon" /><span className='back-span'>BACK</span></button>
-          <button className="edit">Edit floor</button>
+          <button className="edit">Edit building</button>
         </div>
       </div>
-      <div className="dashboard-title">Floor Dashboard</div>
+      <div className="dashboard-title">Building Dashboard</div>
       {data.map((item) => (
             <div key={item.id} className="detail-page">
-              <div className="detail-page-img ">
+              <div className="detail-page-img">
                 <img
-                  src={floorIcon}
+                  src={buldingImg}
                   alt={item.name}
                   className="building-img"
                 />
               </div>
               <div className="detail-left-container">
                 <div className="detail-first-container">
-                  <h4>Floor 1</h4>
+                  <h4>{item.name}</h4>
                 </div>
-                <div className="detail-second-container ">
-                <img src={buldingIcon} alt="right-icon" className="floor-details" />
-                  <span>{item.name}</span>
+                <div className="detail-second-container">
+                <img src={locationIcon} alt="right-icon" />
+                  <span>AlexSandar Malinov 3, commercial</span>
                 </div>
                 <div className="detail-third-container">
                   <div class="detail-third-container-right">
+                    <span><img src={floorIconSmall} /> Floors: 3</span>
                     <span><img src={officeIcon} /> Offices: 3</span>
                     <span><img src={doorIcon} /> Rooms: 3</span>
                   </div>
@@ -62,7 +69,16 @@ const Floor = () => {
             </div>
           ))}
 
-      
+      <div className="devices-wrapper">
+        <div className="device-container right">
+          <span className="devices">Online Devices</span>
+          <span className="number">1</span>
+        </div>     
+        <div className="device-container left">
+          <span className="devices">Total Devices</span>
+          <span className="number">1</span>
+        </div>
+      </div>
           <div className="switch-detail-pages">
           <ul className="nav-list">
             {navItems.map(({id, name}) => (      
@@ -72,19 +88,24 @@ const Floor = () => {
             ))}
 
           </ul>
-          <div className="select-page-container-floor">
-            
+          <div className="select-page-container">
+            <div className="select-page-wrapper">
+            <div className="details-page-header-bottom">
+              <h4 className="back">Floors (0)</h4>
+              <button className="edit"><img src={plusIcon} alt="right-icon" /><span>Create new floor</span></button>
+            </div>
             <div className="add-a-floor-img">
-              <img src={floorImg} alt="building" className="add-a-floor-img" />
+              <Link to={routes.floor}><img src={floorImg} alt="building" className="add-a-floor-img" /></Link>
             </div>
             <div className="no-floor">
-              <p>There are no devices assigned this building </p>
+              <p>There are no floors created for this building </p>
             </div>
             </div>
+          </div>
               
         </div>
     </div>
   )
 }
 
-export default Floor
+export default Details

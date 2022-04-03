@@ -5,7 +5,7 @@ import HomePage from './Pages/Home/HomePage';
 import Details from './Pages/Details/Details';
 import Floor from './Pages/Floor/Floor';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
