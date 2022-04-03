@@ -35,14 +35,14 @@ const Details = () => {
   return (
     <div class="details-page-home-page">
       <div className="details-page-main-wrapper">
-        <div className="details-page-header">
-          <button className="back-btn"><img src={backIcon} alt="Back icon" /><span className='back-span'>BACK</span></button>
+        <div className="details-page-header d-flex-space-between">
+          <button className="back-btn d-flex-center"><img src={backIcon} alt="Back icon" /><span className='back-span'>BACK</span></button>
           <button className="edit">Edit building</button>
         </div>
       </div>
       <div className="dashboard-title">Building Dashboard</div>
       {data.map((item) => (
-            <div key={item.id} className="detail-page">
+            <div key={item.id} className="detail-page d-flex-space-between">
               <div className="detail-page-img">
                 <img
                   src={buldingImg}
@@ -51,14 +51,14 @@ const Details = () => {
                 />
               </div>
               <div className="detail-left-container">
-                <div className="detail-first-container">
+                <div className="detail-first-container d-flex-space-between">
                   <h4>{item.name}</h4>
                 </div>
                 <div className="detail-second-container">
                 <img src={locationIcon} alt="right-icon" />
                   <span>AlexSandar Malinov 3, commercial</span>
                 </div>
-                <div className="detail-third-container">
+                <div className="detail-third-container d-flex-space-between">
                   <div class="detail-third-container-right">
                     <span><img src={floorIconSmall} /> Floors: 3</span>
                     <span><img src={officeIcon} /> Offices: 3</span>
@@ -69,7 +69,7 @@ const Details = () => {
             </div>
           ))}
 
-      <div className="devices-wrapper">
+      <div className="devices-wrapper d-flex-space-between">
         <div className="device-container right">
           <span className="devices">Online Devices</span>
           <span className="number">1</span>
@@ -90,11 +90,11 @@ const Details = () => {
           </ul>
           <div className="select-page-container">
             <div className="select-page-wrapper">
-            <div className="details-page-header-bottom">
+            <div className="details-page-header-bottom d-flex-space-between">
               <h4 className="back">Floors (0)</h4>
               <button className="edit"><img src={plusIcon} alt="right-icon" /><span>Create new floor</span></button>
             </div>
-            <div className="add-a-floor-img">
+            <div className="add-a-floor-img d-flex-center">
               <Link to={routes.floor}><img src={floorImg} alt="building" className="add-a-floor-img" /></Link>
             </div>
             <div className="no-floor">

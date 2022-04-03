@@ -19,14 +19,14 @@ import './HomePage.css';
 const HomePage = () => {
   const data = useSelector((state) => state.building.data);
   return (
-    <div className="home-page">
-      <div class="home-page-wrapper">
-        <div className="container">
+    <div className="home-page d-flex-center">
+      <div class="home-page-wrapper d-flex-center">
+        <div className="container ">
           <div className="home-header-title">
             <h3>Buildings (5)</h3>
           </div>
           <div className="home-header-button">
-            <button className="btn btn-primary">
+            <button className="btn btn-primary d-flex-center">
               <img src={plusIcon} alt="right-icon" />
               <span>Create new buiding</span>
             </button>

@@ -29,14 +29,14 @@ const Floor = () => {
   return (
     <div class="details-page-home-page">
       <div className="details-page-main-wrapper">
-        <div className="details-page-header">
+        <div className="details-page-header d-flex-space-between">
           <button className="back-btn"><img src={backIcon} alt="Back icon" /><span className='back-span'>BACK</span></button>
           <button className="edit">Edit floor</button>
         </div>
       </div>
       <div className="dashboard-title">Floor Dashboard</div>
       {data.map((item) => (
-            <div key={item.id} className="detail-page">
+            <div key={item.id} className="detail-page d-flex-center">
               <div className="detail-page-img ">
                 <img
                   src={floorIcon}
